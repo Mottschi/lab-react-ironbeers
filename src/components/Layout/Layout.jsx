@@ -12,7 +12,10 @@ function Header() {
                 <Link to='/'><FontAwesomeIcon icon={faHouse} /></Link>
             </nav>
         </header>
-        <Outlet />
+        <main>
+          <Outlet />
+        </main>
+        
     </>
   )
 }

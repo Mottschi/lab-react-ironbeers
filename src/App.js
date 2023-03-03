@@ -1,22 +1,24 @@
-import './App.css';
-import axios from 'axios';
-import { Route, Routes } from 'react-router';
+import "./App.css";
+import { Route, Routes } from "react-router";
 
-import HomePage from './components/HomePage/HomePage';
-import Layout from './Layout/Layout';
+import HomePage from "./pages/HomePage/HomePage";
+import Layout from "./components/Layout/Layout";
+import Beers from "./pages/Beers/Beers";
+import NewBeer from "./pages/NewBeer/NewBeer";
+import OneBeer from "./pages/OneBeer/OneBeer";
+import RandomBeer from "./pages/RandomBeer/RandomBeer";
+import "bootstrap/dist/css/bootstrap.css";
 
 function App() {
-  const apiBaseUrl = 'https://ih-beers-api2.herokuapp.com/beers';
-
   return (
     <div className="App">
       <Routes>
-        <Route path='/' element={<HomePage />}/>
+        <Route path="/" element={<HomePage />} />
         <Route element={<Layout />}>
-          <Route path='/beers' element={<h1>Beers</h1>}/>
-          <Route path='/random-beer' element={<h1>Random Beer</h1>}/>
-          <Route path='/new-beer' element={<h1>New Beer</h1>}/>
-
+          <Route path="/beers" element={<Beers />} />
+          <Route path="/beers/:id" element={<OneBeer />} />
+          <Route path="/random-beer" element={<RandomBeer />} />
+          <Route path="/new-beer" element={<NewBeer />} />
         </Route>
       </Routes>
     </div>

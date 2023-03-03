@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router";
+import BeerDetails from "../../components/BeerDetails/BeerDetails";
 import Loading from "../../components/Loading/Loading";
 
 /*
@@ -34,28 +35,7 @@ function OneBeer() {
   return (
     <div className="container">
       <div className="row justify-content-center align-items-center">
-        {beer ? (
-          <div className="col-10 m-5">
-            <img
-              src={beer.image_url}
-              alt={beer.name}
-              className="img-fluid"
-              style={{ maxHeight: "200px", objectFit: "contain" }}
-            />
-            <div className="row">
-              <h5 className="col text-start">{beer.name}</h5>
-              <p className="col text-end">{beer.attenuation_level}</p>
-            </div>
-            <div className="row">
-              <p className="col text-start">{beer.tagline}</p>
-              <p className="col text-end">{beer.first_brewed}</p>
-              <p>{beer.description}</p>
-              <p>{beer.contributed_by}</p>
-            </div>
-          </div>
-        ) : (
-          <Loading />
-        )}
+        {beer ? <BeerDetails beer={beer} /> : <Loading />}
       </div>
     </div>
   );

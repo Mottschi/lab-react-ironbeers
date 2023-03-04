@@ -36,8 +36,12 @@ function NewBeer() {
   }
 
   function handleAttenutationLevelChange(event) {
+    if (!event.target.checkValidity()) return;
+
     if (event.target.value === "") return setAttenuationLevel("");
-    setAttenuationLevel(parseInt(event.target.value));
+
+    const enteredNumber = parseInt(event.target.value);
+    if (!isNaN(enteredNumber)) setAttenuationLevel(enteredNumber);
   }
 
   function handleContributedByChange(event) {
@@ -50,18 +54,17 @@ function NewBeer() {
     const beer = {
       name,
       tagline,
-      brewersTips,
-      firstBrewed,
+      brewers_tips: brewersTips,
+      first_brewed: firstBrewed,
       description,
-      attenuationLevel,
-      contributedBy,
+      attenuation_level: attenuationLevel || 0,
+      contributed_by: contributedBy,
     };
+    console.log("sending beer", beer);
     axios
       .post(url, beer)
-      .then((response) => response.data)
-      .then((data) => {
-        console.log(data);
-        navigate("/beers");
+      .then((response) => {
+        if (response.status === 200) navigate("/beers");
       })
       .catch((error) => console.log(error));
   }

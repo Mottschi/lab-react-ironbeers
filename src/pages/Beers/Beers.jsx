@@ -32,17 +32,21 @@ function Beers() {
   }
   return (
     <div className="container">
-      <div className="row justify-content-center align-items-center m-3">
-        <div>
-          <label htmlFor="search">Search:</label>
+      <div className="row justify-content-center align-items-center m-3 form-group">
+        <label htmlFor="search" className="col-2 text-end col-form-label">
+          Search:
+        </label>
+        <div className="col-6">
           <input
             type="text"
             name="search"
             id="search"
             onChange={handleSearch}
+            className="form-control d-inline col-6 text-center"
           />
         </div>
       </div>
+
       <div className="row justify-content-center align-items-center">
         {beers ? (
           beers.map((beer) => <BeerCard beer={beer} key={beer._id} />)

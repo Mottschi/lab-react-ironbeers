@@ -70,9 +70,9 @@ function NewBeer() {
   }
 
   return (
-    <div className="container">
+    <div className="container-fluid">
       <h1>Create a new beer!</h1>
-      <div className="row justify-content-center align-items-center">
+      <div className="row justify-content-center align-items-center w-100">
         <form onSubmit={handleSubmit}>
           <div className="form-group row">
             <label className="col-2 text-start col-form-label" htmlFor="name">

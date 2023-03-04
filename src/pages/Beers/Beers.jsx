@@ -31,7 +31,7 @@ function Beers() {
     setQuery(event.target.value);
   }
   return (
-    <div className="container">
+    <div className="container-fluid">
       <div className="row justify-content-center align-items-center m-3 form-group">
         <label htmlFor="search" className="col-2 text-end col-form-label">
           Search:

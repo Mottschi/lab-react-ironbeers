@@ -3,10 +3,7 @@ import { Link } from "react-router-dom";
 
 function BeerCard({ beer: { image_url, name, tagline, contributed_by, _id } }) {
   return (
-    <div
-      className="card col-4 sm-3 m-2"
-      style={{ height: "400px", width: "350px" }}
-    >
+    <div className="card col-1 m-2" style={{ height: "400px", width: "350px" }}>
       <img
         src={image_url}
         alt={name}
